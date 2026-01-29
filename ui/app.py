@@ -272,7 +272,8 @@ with center:
     st.subheader("Answer")
     
     if st.session_state.last_answer:
-        st.markdown(f'<div class="answer-container">{st.session_state.last_answer}</div>', unsafe_allow_html=True)
+        # Use st.markdown to properly render markdown formatting
+        st.markdown(st.session_state.last_answer)
     else:
         st.info("Your answer will appear here after asking a question.")
     
