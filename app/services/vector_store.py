@@ -4,10 +4,12 @@ import faiss
 import numpy as np
 from typing import List, Dict, Any
 from app.core.logging import setup_logging
+from app.core.config import settings
 
 logger = setup_logging()
 
-INDEX_DIR = "data/faiss_index"
+# Use configurable data directory for Fly.io volume support
+INDEX_DIR = os.path.join(settings.DATA_DIR, "faiss_index")
 INDEX_FILE = os.path.join(INDEX_DIR, "index.faiss")
 METADATA_FILE = os.path.join(INDEX_DIR, "metadata.pkl")
 

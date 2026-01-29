@@ -6,9 +6,12 @@ from app.services.chunking import chunk_text
 from app.services.embeddings import generate_embeddings
 from app.services.vector_store import vector_store
 from app.core.logging import setup_logging
+from app.core.config import settings
 
 logger = setup_logging()
-UPLOAD_DIR = "data/uploads"
+
+# Use configurable data directory for Fly.io volume support
+UPLOAD_DIR = os.path.join(settings.DATA_DIR, "uploads")
 
 # Ensure upload directory exists
 os.makedirs(UPLOAD_DIR, exist_ok=True)
