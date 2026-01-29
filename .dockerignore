@@ -1,7 +1,0 @@
-# Ignore Python cache and bytecode
-*.pyc
-__pycache__/
-
-# Ignore virtual environment
-.dockerignore
-Dockerfile.dev

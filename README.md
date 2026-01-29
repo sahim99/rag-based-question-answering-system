@@ -207,55 +207,6 @@ rag_app/
 
 ---
 
-## 9. Fly.io Deployment
-
-### Prerequisites
-- [Fly CLI](https://fly.io/docs/getting-started/installing-flyctl/) installed
-- Fly.io account
-
-### Deployment Steps
-
-```bash
-# 1. Navigate to project
-cd rag_app
-
-# 2. Launch app (creates fly.toml if needed)
-fly launch --name rag-qa-system --region sin --no-deploy
-
-# 3. Create persistent volume for FAISS index
-fly volumes create rag_data --size 1 --region sin
-
-# 4. Set secrets (API keys)
-fly secrets set GROQ_API_KEY=your_groq_key_here
-fly secrets set JINA_API_KEY=your_jina_key_here
-
-# 5. Deploy
-fly deploy
-```
-
-### Verify Deployment
-
-```bash
-# Check app status
-fly status
-
-# View logs
-fly logs
-
-# Test health endpoint
-curl https://rag-qa-system.fly.dev/api/health
-```
-
-### Environment Variables on Fly.io
-
-| Variable | Set Via |
-|----------|---------|
-| `GROQ_API_KEY` | `fly secrets set` |
-| `JINA_API_KEY` | `fly secrets set` |
-| `DATA_DIR` | Pre-configured in `fly.toml` (`/data`) |
-| `PORT` | Auto-set by Fly.io |
-
----
-
 **Powered by:** FastAPI · FAISS · Jina AI · Groq LLM
+
 
