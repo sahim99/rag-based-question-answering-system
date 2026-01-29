@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+pydantic
+pydantic-settings
+python-dotenv
+python-multipart
+openai
+pypdf
+faiss-cpu
+numpy
+groq
+httpx
+streamlit
+requests
