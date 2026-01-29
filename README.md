@@ -2,6 +2,8 @@
 
 A retrieval-augmented generation (RAG) system that enables question answering grounded strictly in uploaded documents.
 
+![RAG System UI](screenshots/demo_ui.png)
+
 ---
 
 ## 1. Project Overview
