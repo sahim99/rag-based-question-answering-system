@@ -19,29 +19,29 @@ This system allows users to upload PDF or TXT documents and ask questions about 
 ```
 ┌─────────────┐     ┌──────────────────────────────────────────┐
 │   Client    │     │           FastAPI Backend                │
-│  (UI/API)   │────▶│                                          │
+│  (UI/API)   │──▶  │                                          │
 └─────────────┘     │  ┌────────────────────────────────────┐  │
                     │  │  POST /upload                      │  │
                     │  │  POST /query                       │  │
                     │  └──────────────┬─────────────────────┘  │
                     │                 │                        │
                     │  ┌──────────────▼─────────────────────┐  │
-                    │  │  Background Ingestion               │  │
-                    │  │  - PDF/TXT Parsing                  │  │
-                    │  │  - Text Chunking (1000/200)         │  │
-                    │  │  - Embedding Generation (Jina AI)   │  │
+                    │  │  Background Ingestion              │  │
+                    │  │  - PDF/TXT Parsing                 │  │
+                    │  │  - Text Chunking (1000/200)        │  │
+                    │  │  - Embedding Generation (Jina AI)  │  │
                     │  └──────────────┬─────────────────────┘  │
                     │                 │                        │
                     │  ┌──────────────▼─────────────────────┐  │
-                    │  │  FAISS Vector Store                 │  │
-                    │  │  - Similarity Search (Top-5)        │  │
-                    │  │  - Persistent Index on Disk         │  │
+                    │  │  FAISS Vector Store                │  │
+                    │  │  - Similarity Search (Top-5)       │  │
+                    │  │  - Persistent Index on Disk        │  │
                     │  └──────────────┬─────────────────────┘  │
                     │                 │                        │
                     │  ┌──────────────▼─────────────────────┐  │
-                    │  │  LLM Integration (Groq)             │  │
-                    │  │  - Context Injection                │  │
-                    │  │  - Answer Generation                │  │
+                    │  │  LLM Integration (Groq)            │  │
+                    │  │  - Context Injection               │  │
+                    │  │  - Answer Generation               │  │
                     │  └────────────────────────────────────┘  │
                     └──────────────────────────────────────────┘
 ```
